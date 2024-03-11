@@ -10,16 +10,33 @@ class TreeNode:
         
 
 class Solution:
-    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        arr = []
+    # def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    #     arr = []
         
-        def inorder(node):
-            if not node:
-                return
+    #     def inorder(node):
+    #         if not node:
+    #             return
             
-            inorder(node.left)
-            arr.append(node.val)
-            inorder(node.right)
+    #         inorder(node.left)
+    #         arr.append(node.val)
+    #         inorder(node.right)
         
-        inorder(root)
-        return arr
+    #     inorder(root)
+    #     return arr
+    
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        if not root: return []
+        
+        stack = []
+        ans = []
+        cur = root
+        
+        while cur or stack:
+            while cur:
+                stack.append(cur)
+                cur = cur.left
+            cur = stack.pop()
+            ans.append(cur.val)
+            cur = cur.right
+        
+        return ans
