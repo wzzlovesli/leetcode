@@ -15,9 +15,10 @@ def selection_sort2(arr):
             if arr[j] < arr[min_idx]:
                 min_idx = j
 
-        tmp = arr[i]
-        arr[i] = arr[min_idx]
-        arr[min_idx] = tmp
+        # tmp = arr[i]
+        # arr[i] = arr[min_idx]
+        # arr[min_idx] = tmp
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
     return arr
 
 
